@@ -18,15 +18,15 @@ public class UpdateAndInsertDemo {
 
         SelectDemo.printDemoTable(records);
         records.beforeFirst();
-        //logika update i wstawiania nie jest istotna, wazne jak to robimy
+        //logika updat'u i insert'u nie jest istotna, ważne jak to robimy
         while(records.next()){
             int points = records.getInt("points");
-            //jeśli w polu "points" jest wartość null to zmieniamy ją na 0
+            //założenie update'u: jeśli w polu "points" jest wartość null to zmieniamy ją na 0
             if (records.wasNull()){
                 records.updateInt("points", 0);
                 records.updateRow();
             }
-            //jeśli w polu name jest null to wstawiamy nowy rekord
+            //założenie instert'u: jeśli w polu name jest null to wstawiamy nowy rekord
             if (records.getString("name") == null){
                 //przesunięcie kursora do nowego wiersza
                 records.moveToInsertRow();

@@ -37,7 +37,7 @@ public class CRUDApp {
         while(true){
             switch (menu()){
                 case 1:
-                    //TODO zdefiniować metode tworzenie własnej tabeli
+                    //TODO zdefiniować metodę tworzenie własnej tabeli
                     CreateTableStatementDemo.createTableDemo();
                     break;
                 case 2:
