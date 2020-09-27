@@ -1,68 +1,68 @@
 package nospringquiz;
 
 import entity.Question;
+import entity.Quiz;
 import jpa.MyPersistence;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-public class QuestionRepositoryJpa implements QuestionRepository{
-
+public class QuizRepositoryJpa implements QuizRepository {
     private final MyPersistence persistence;
 
-    public QuestionRepositoryJpa(MyPersistence persistence) {
+    public QuizRepositoryJpa(MyPersistence persistence) {
         this.persistence = persistence;
     }
 
     @Override
-    public void save(Question question) {
+    public void save(Quiz quiz) {
         EntityManager em = persistence.getEntityManager();
         em.getTransaction().begin();
-        em.persist(question);
+        em.persist(quiz);
         em.getTransaction().commit();
         em.close();
     }
 
     @Override
-    public Optional<Question> findById(long id) {
+    public Optional<Quiz> findById(long id) {
         EntityManager em = persistence.getEntityManager();
-        Optional<Question> question = Optional.ofNullable(em.find(Question.class, id));
+        em.getTransaction().begin();
+        Optional<Quiz> quiz = Optional.ofNullable(em.find(Quiz.class, id));
+        em.getTransaction().commit();
         em.close();
-        return question;
+        return quiz;
     }
 
     @Override
-    public void delete(Question question) {
+    public void delete(Quiz quiz) {
         EntityManager em = persistence.getEntityManager();
         em.getTransaction().begin();
-        em.remove(question);
+        em.remove(quiz);
         em.getTransaction().commit();
         em.close();
     }
 
     @Override
-    public void update(long id, Question question) {
+    public void update(long id, Quiz quiz) {
         EntityManager em = persistence.getEntityManager();
         em.getTransaction().begin();
-        Question entity = em.find(Question.class, id);
+        Quiz entity = em.find(Quiz.class, id);
         if (entity == null){
             em.getTransaction().commit();
             em.close();
             return;
         }
-        entity.setBody(question.getBody());
-        entity.setOptions(question.getOptions());
-        entity.setValidOption(question.getValidOption());
-        entity.setPoints(question.getPoints());
+        entity.setQuestions(quiz.getQuestions());
+        entity.setTitle(quiz.getTitle());
         em.getTransaction().commit();
         em.close();
     }
 
     @Override
-    public List<Question> findAll() {
+    public List<Quiz> findAll() {
         EntityManager em = persistence.getEntityManager();
-        return em.createQuery("from Question", Question.class)
+        return em.createQuery("from Quiz", Quiz.class)
                 .getResultList();
     }
 }
