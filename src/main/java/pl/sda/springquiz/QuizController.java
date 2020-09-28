@@ -9,12 +9,14 @@ import java.util.Map;
 
 public class QuizController {
     Map<Question, Integer> answers = new HashMap<>();
-    private final QuizService quizService;
+    private final SpringQuizService quizService;
     ListIterator<Question> questions;
     Question currentQuestion;
+    private long quizId;
 
-    public QuizController(QuizService quizService, long quizId) {
+    public QuizController(SpringQuizService quizService, long quizId) {
         this.quizService = quizService;
+        this.quizId = quizId;
         questions = quizService.getQuiz(quizId).listIterator();
     }
 
@@ -33,6 +35,10 @@ public class QuizController {
 
     public void saveAnswer(Question question, int answer){
         answers.put(question, answer);
+    }
+
+    public void completeQuiz(){
+        quizService.completeQuiz(answers, quizId);
     }
 
     public int summary(){

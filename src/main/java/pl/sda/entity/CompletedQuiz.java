@@ -1,26 +1,27 @@
 package pl.sda.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Quiz {
+public class CompletedQuiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String title;
+    @ManyToOne
+    private Quiz quiz;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private Set<Question> questions = new HashSet<>();
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private Set<Answer> answers;
 }

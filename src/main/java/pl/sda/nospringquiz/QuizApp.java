@@ -5,6 +5,8 @@ import pl.sda.entity.Question;
 import pl.sda.entity.Quiz;
 import pl.sda.jpa.MyPersistence;
 import pl.sda.springquiz.QuizController;
+import pl.sda.springquiz.SpringQuizService;
+
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -60,7 +62,7 @@ public class QuizApp {
         QuizRepository quizRepository = new QuizRepositoryJpa(MyPersistence.QUIZ);
         initData(questionRepository, quizRepository);
         QuizService quizService = new QuizServiceJpa(quizRepository);
-        QuizController controller = new QuizController(quizService, 1);
+        QuizController controller = new QuizController((SpringQuizService) quizService, 1);
         Scanner scanner = new Scanner(System.in);
         while(true){
             Question question = controller.next();
@@ -82,6 +84,7 @@ public class QuizApp {
             }
             controller.saveAnswer(question, answer);
         }
+        controller.completeQuiz();
         System.out.println("Podsumowanie quizu: " + controller.summary());
     }
 }

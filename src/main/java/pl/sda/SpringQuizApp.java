@@ -3,8 +3,6 @@ package pl.sda;
 import pl.sda.entity.Option;
 import pl.sda.entity.Question;
 import pl.sda.entity.Quiz;
-import pl.sda.nospringquiz.QuestionRepository;
-import pl.sda.nospringquiz.QuizRepository;
 import pl.sda.nospringquiz.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,19 +11,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.sda.springquiz.QuizController;
 import pl.sda.springquiz.SpringQuestionRepository;
 import pl.sda.springquiz.SpringQuizRepository;
+import pl.sda.springquiz.SpringQuizService;
 
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
 @SpringBootApplication
 public class SpringQuizApp implements CommandLineRunner {
-    final QuizService quizService;
+    final SpringQuizService quizService;
     final SpringQuizRepository quizRepository;
     final SpringQuestionRepository questionRepository;
 
     @Autowired
-    public SpringQuizApp(QuizService quizService, SpringQuizRepository quizRepository, SpringQuestionRepository questionRepository) {
+    public SpringQuizApp(SpringQuizService quizService, SpringQuizRepository quizRepository, SpringQuestionRepository questionRepository) {
         this.quizService = quizService;
         this.quizRepository = quizRepository;
         this.questionRepository = questionRepository;
@@ -35,7 +35,7 @@ public class SpringQuizApp implements CommandLineRunner {
         SpringApplication.run(SpringQuizApp.class, args);
     }
 
-    public static void initData(SpringQuestionRepository repository, SpringQuizRepository quizRepository){
+    public static void initData(SpringQuestionRepository repository, SpringQuizRepository quizRepository) {
         Set<Question> questions = new HashSet<>();
         Question q = Question.builder()
                 .body("Wybierz słowo kluczowe Javy")
@@ -82,8 +82,12 @@ public class SpringQuizApp implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        initData(questionRepository, quizRepository);
+    public void run(String... args) {
+        try {
+            initData(questionRepository, quizRepository);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         QuizController controller = new QuizController(quizService, 1);
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -106,6 +110,7 @@ public class SpringQuizApp implements CommandLineRunner {
             }
             controller.saveAnswer(question, answer);
         }
+        controller.completeQuiz();
         System.out.println("Podsumowanie quizu: " + controller.summary());
     }
 }
