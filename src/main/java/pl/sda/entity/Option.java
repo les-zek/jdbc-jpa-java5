@@ -1,4 +1,4 @@
-package entity;
+package pl.sda.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

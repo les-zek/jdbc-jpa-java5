@@ -1,6 +1,6 @@
-package nospringquiz;
+package pl.sda.nospringquiz;
 
-import entity.Question;
+import pl.sda.entity.Question;
 
 import java.util.List;
 import java.util.Optional;

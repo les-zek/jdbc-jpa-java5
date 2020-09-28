@@ -1,6 +1,6 @@
-package jpa;
+package pl.sda.jpa;
 
-import entity.Demo;
+import pl.sda.entity.Demo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;

@@ -1,16 +1,41 @@
-package nospringquiz;
+package pl.sda;
 
-import entity.Option;
-import entity.Question;
-import entity.Quiz;
-import jpa.MyPersistence;
+import pl.sda.entity.Option;
+import pl.sda.entity.Question;
+import pl.sda.entity.Quiz;
+import pl.sda.nospringquiz.QuestionRepository;
+import pl.sda.nospringquiz.QuizRepository;
+import pl.sda.nospringquiz.QuizService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import pl.sda.springquiz.QuizController;
+import pl.sda.springquiz.SpringQuestionRepository;
+import pl.sda.springquiz.SpringQuizRepository;
 
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class QuizApp {
-    public static void initData(QuestionRepository repository, QuizRepository quizRepository){
+@SpringBootApplication
+public class SpringQuizApp implements CommandLineRunner {
+    final QuizService quizService;
+    final SpringQuizRepository quizRepository;
+    final SpringQuestionRepository questionRepository;
+
+    @Autowired
+    public SpringQuizApp(QuizService quizService, SpringQuizRepository quizRepository, SpringQuestionRepository questionRepository) {
+        this.quizService = quizService;
+        this.quizRepository = quizRepository;
+        this.questionRepository = questionRepository;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringQuizApp.class, args);
+    }
+
+    public static void initData(SpringQuestionRepository repository, SpringQuizRepository quizRepository){
         Set<Question> questions = new HashSet<>();
         Question q = Question.builder()
                 .body("Wybierz słowo kluczowe Javy")
@@ -55,11 +80,10 @@ public class QuizApp {
         Quiz quiz = Quiz.builder().title("Język Java").questions(questions).build();
         quizRepository.save(quiz);
     }
-    public static void main(String[] args) {
-        QuestionRepository questionRepository = new QuestionRepositoryJpa(MyPersistence.QUIZ);
-        QuizRepository quizRepository = new QuizRepositoryJpa(MyPersistence.QUIZ);
+
+    @Override
+    public void run(String... args) throws Exception {
         initData(questionRepository, quizRepository);
-        QuizService quizService = new QuizServiceJpa(quizRepository);
         QuizController controller = new QuizController(quizService, 1);
         Scanner scanner = new Scanner(System.in);
         while(true){

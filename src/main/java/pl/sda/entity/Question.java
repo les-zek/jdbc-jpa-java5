@@ -1,4 +1,4 @@
-package entity;
+package pl.sda.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +24,7 @@ public class Question implements Serializable{
     @Embedded
     private Option options;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "valid_option")
     private int validOption;
 
     @Column(nullable = false)

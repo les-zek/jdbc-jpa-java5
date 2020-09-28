@@ -1,4 +1,4 @@
-package jdbc;
+package pl.sda.jdbc;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;

@@ -1,8 +1,7 @@
-package nospringquiz;
+package pl.sda.nospringquiz;
 
-import entity.Question;
-import entity.Quiz;
-import jpa.MyPersistence;
+import pl.sda.entity.Quiz;
+import pl.sda.jpa.MyPersistence;
 
 import javax.persistence.EntityManager;
 import java.util.List;

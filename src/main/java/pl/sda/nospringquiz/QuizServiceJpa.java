@@ -1,7 +1,7 @@
-package nospringquiz;
+package pl.sda.nospringquiz;
 
-import entity.Question;
-import entity.Quiz;
+import pl.sda.entity.Question;
+import pl.sda.entity.Quiz;
 
 import java.util.ArrayList;
 import java.util.Collections;

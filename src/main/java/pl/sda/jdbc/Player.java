@@ -1,4 +1,4 @@
-package jdbc;
+package pl.sda.jdbc;
 
 public class Player {
     private int id;

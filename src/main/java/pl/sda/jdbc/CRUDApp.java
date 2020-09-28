@@ -1,10 +1,7 @@
-package jdbc;
+package pl.sda.jdbc;
 
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class CRUDApp {
@@ -37,6 +34,17 @@ public class CRUDApp {
         connection.close();
     }
 
+    public static void printTable() throws IllegalAccessException, InstantiationException, SQLException, NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
+        Connection connection = ConnectionDemo.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from demo");
+        while(resultSet.next()){
+            System.out.print(resultSet.getString("name") +" ");
+            System.out.print(resultSet.getInt("points"));
+            System.out.println();
+        }
+    }
+
     public static void findByNameOrPoints() throws IllegalAccessException, InstantiationException, SQLException, NoSuchMethodException, InvocationTargetException, ClassNotFoundException {
         System.out.println("Podaj imię lub szablon:");
         String templateName = scanner.nextLine();
@@ -62,7 +70,7 @@ public class CRUDApp {
                     insertRecord();
                     break;
                 case 3:
-                    //wyświetl tabelę
+                    printTable();
                     break;
                 case 4:
                     findByNameOrPoints();

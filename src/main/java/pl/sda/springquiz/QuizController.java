@@ -1,6 +1,7 @@
-package nospringquiz;
+package pl.sda.springquiz;
 
-import entity.Question;
+import pl.sda.entity.Question;
+import pl.sda.nospringquiz.QuizService;
 
 import java.util.HashMap;
 import java.util.ListIterator;

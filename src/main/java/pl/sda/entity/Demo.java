@@ -1,4 +1,4 @@
-package entity;
+package pl.sda.entity;
 
 import javax.persistence.*;
 
