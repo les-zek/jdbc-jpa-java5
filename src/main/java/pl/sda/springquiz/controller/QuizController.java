@@ -1,7 +1,7 @@
-package pl.sda.springquiz;
+package pl.sda.springquiz.controller;
 
 import pl.sda.entity.Question;
-import pl.sda.nospringquiz.QuizService;
+import pl.sda.springquiz.service.SpringQuizService;
 
 import java.util.HashMap;
 import java.util.ListIterator;

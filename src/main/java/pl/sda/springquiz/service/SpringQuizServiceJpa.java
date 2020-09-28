@@ -1,4 +1,4 @@
-package pl.sda.springquiz;
+package pl.sda.springquiz.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,8 @@ import pl.sda.entity.Answer;
 import pl.sda.entity.CompletedQuiz;
 import pl.sda.entity.Question;
 import pl.sda.entity.Quiz;
+import pl.sda.springquiz.repository.CompletedQuizRepository;
+import pl.sda.springquiz.repository.SpringQuizRepository;
 
 import java.util.*;
 import java.util.stream.Collectors;

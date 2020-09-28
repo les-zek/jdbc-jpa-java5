@@ -4,8 +4,8 @@ import pl.sda.entity.Option;
 import pl.sda.entity.Question;
 import pl.sda.entity.Quiz;
 import pl.sda.jpa.MyPersistence;
-import pl.sda.springquiz.QuizController;
-import pl.sda.springquiz.SpringQuizService;
+import pl.sda.springquiz.controller.QuizController;
+import pl.sda.springquiz.service.SpringQuizService;
 
 import java.util.HashSet;
 import java.util.Scanner;

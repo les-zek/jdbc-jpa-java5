@@ -1,4 +1,4 @@
-package pl.sda.springquiz;
+package pl.sda.springquiz.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

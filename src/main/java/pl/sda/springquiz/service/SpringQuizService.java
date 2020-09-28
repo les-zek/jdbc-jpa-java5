@@ -1,4 +1,4 @@
-package pl.sda.springquiz;
+package pl.sda.springquiz.service;
 
 import pl.sda.entity.Question;
 
