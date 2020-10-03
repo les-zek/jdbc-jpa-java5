@@ -80,15 +80,15 @@ public class SpringQuizApp implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) {
+    public void run(String... args) throws Exception {
         try {
             initData(questionRepository, quizRepository);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         QuizController controller = new QuizController(quizService, 1);
         Scanner scanner = new Scanner(System.in);
-        while(true){
+        while (true) {
             Question question = controller.next();
             System.out.println(question.getBody());
             System.out.println("1. " + question.getOptions().getOption1());
@@ -98,18 +98,23 @@ public class SpringQuizApp implements CommandLineRunner {
             System.out.println("0. Cofnij się do poprzedniego pytania");
             System.out.println("5. Koniec");
             int answer = scanner.nextInt();
-            if (answer == 0){
+            if (answer == 0) {
                 controller.previous();
                 controller.previous();
                 continue;
             }
-            if (answer == 5){
+            if (answer == 5) {
                 break;
             }
             controller.saveAnswer(question, answer);
         }
         controller.completeQuiz();
         System.out.println("Podsumowanie quizu: " + controller.summary());
+        try {
+            quizService.transferPoints(1, 2, 100);
+        } catch (Exception e) {
+            System.out.printf("Nie powiódł sie transfer. Rollback");
+        }
         System.exit(0);
     }
 }

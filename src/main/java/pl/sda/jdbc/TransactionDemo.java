@@ -14,7 +14,10 @@ public class TransactionDemo {
         int points = scanner.nextInt();
 
         // transakcja
+
         con.setAutoCommit(false);
+        con.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+
         Savepoint start = con.setSavepoint("start");
         PreparedStatement update = con.prepareStatement("update question set points = points - ? where id =1");
         update.setInt(1, points);
