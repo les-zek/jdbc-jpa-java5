@@ -14,9 +14,9 @@ public class ConnectionDemo {
     public static Connection getConnection() throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
         Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/java6?serverTimezone=Europe/Warsaw",
+                "jdbc:mysql://localhost:3306/quiz?serverTimezone=Europe/Warsaw",
                 "root",
-                "1234");
+                "Leszekdupa102");
         return connection;
     }
 }

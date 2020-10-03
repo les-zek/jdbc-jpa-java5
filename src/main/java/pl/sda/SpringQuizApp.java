@@ -110,5 +110,6 @@ public class SpringQuizApp implements CommandLineRunner {
         }
         controller.completeQuiz();
         System.out.println("Podsumowanie quizu: " + controller.summary());
+        System.exit(0);
     }
 }

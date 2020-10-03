@@ -21,6 +21,6 @@ public class Quiz {
 
     private String title;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Question> questions = new HashSet<>();
 }
