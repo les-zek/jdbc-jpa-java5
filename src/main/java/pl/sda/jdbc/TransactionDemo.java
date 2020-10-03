@@ -1,9 +1,7 @@
 package pl.sda.jdbc;
 
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class TransactionDemo {
@@ -14,6 +12,10 @@ public class TransactionDemo {
         // obnizka punktow w pierwszym pytaniu
         // podwyzka w drugim
         int points = scanner.nextInt();
+
+        // transakcja
+        con.setAutoCommit(false);
+        Savepoint start = con.setSavepoint("start");
         PreparedStatement update = con.prepareStatement("update question set points = points - ? where id =1");
         update.setInt(1, points);
         update.executeUpdate();
@@ -24,6 +26,16 @@ public class TransactionDemo {
         update = con.prepareStatement("update question set points = points + ? where id =2");
         update.setInt(1, points);
         update.executeUpdate();
+
+        Statement statement = con.createStatement();
+        ResultSet resultSet = statement.executeQuery("select points from question where id = 1");
+        resultSet.next();
+        int pointsFromBase = resultSet.getInt("points");
+        System.out.printf("Punkty w pytaniu 1 : "+pointsFromBase);
+        if (pointsFromBase <= 0) {
+            con.rollback(start);
+        }
+        con.commit();
         con.close();
     }
 }
