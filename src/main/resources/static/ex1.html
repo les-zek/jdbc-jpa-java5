@@ -7,9 +7,9 @@
 <body>
 <HEADER>
     <nav>
-        <a href="https://www.freecodecamp.org">Freecodecamp </a>
-        <a href="https://www.w3schools.com">w3Schools </a>
-        <a href="https://developer.mozilla.org/pl">Developer Mozilla </a>
+        <a href="https://www.freecodecamp.org"> Freecodecamp </a>
+        <a href="https://www.w3schools.com"> w3Schools </a>
+        <a href="https://developer.mozilla.org/pl"> Developer Mozilla </a>
     </nav>
 </HEADER>
 
@@ -17,12 +17,108 @@
     <article>
         <h1>Kurs HTML</h1>
         <section>
+            <!-- komentarz -->
             <h2>Znaczniki semantyczne</h2>
-            <p>Do znaczników semantycznych należą:
-            h1, h2, h3, p, a
+            <p>Do znaczników semantycznych należą:<br>
+                h1, h2, h3, p, a
             </p>
         </section>
     </article>
+    <section>
+        <h2>Przykłady list</h2>
+        <h3>Lista numerowana</h3>
+        <ol>
+            <li>Adam</li>
+            <li>Karol</li>
+            <li>Małgorzata</li>
+
+        </ol>
+        <h3>Lista wypunktowana</h3>
+        <ul>
+            <li>Adam</li>
+            <li>Karol</li>
+            <li>Małgorzata</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Element typu div</h2>
+        <div>
+            <h3>nagłówek wewnątrz div</h3>
+            <p>Tekst wewnątrz <span>div</span></p>
+            <img src="https://logos-download.com/wp-content/uploads/2016/10/Java_logo_icon.png"
+                 width="400px"
+                 alt="Logo Java">
+
+        </div>
+    </section>
+    <section>
+        <h2>Przykłady tabel</h2>
+
+        <table>
+            <tr>
+                <td>Nr.</td>
+                <td>Imię</td>
+                <td>Nazwisko</td>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>Adam</td>
+                <td>Nowak</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Ewa</td>
+                <td>Nowakowska-Nowak</td>
+            </tr>
+            <tr>
+                <td colspan="3">Lista obecności</td>
+            </tr>
+        </table>
+        <table>
+            <thead>
+            <tr>
+                <th>Nr.</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>100.</td>
+                <td>Karol</td>
+                <td>Ącki</td>
+            </tr>
+            <tr>
+                <td>200.</td>
+                <td>Janeczek</td>
+                <td>Kowalski</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="2">Liczba obecnych</td>
+                <td>2</td>
+            </tr>
+            </tfoot>
+        </table>
+    </section>
+    <section>
+        <h2>Przykład wykorzystania znaczników semantycznych liniowych</h2>
+        <p>Kod programu:</p>
+        <pre>
+    <code>
+        public static void main(String[] args)
+        {
+                    SpringApplication.run(SpringQuizApp.class, args);
+        }
+    </code>
+    </pre>
+        <p>Uruchomienie programu - naciśnij klawisze <kbd>Shift + F10</kbd></p>
+        <p>Zmienna <var>a</var> wynosi 10.</p>
+
+    </section>
+
+
 </main>
 </body>
 </html>
