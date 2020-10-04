@@ -111,7 +111,7 @@ public class SpringQuizApp implements CommandLineRunner {
         controller.completeQuiz();
         System.out.println("Podsumowanie quizu: " + controller.summary());
         try {
-            quizService.transferPoints(1, 2, 100);
+            quizService.transferPoints(1, 2, 5);
         } catch (Exception e) {
             System.out.printf("Nie powiódł sie transfer. Rollback");
         }
