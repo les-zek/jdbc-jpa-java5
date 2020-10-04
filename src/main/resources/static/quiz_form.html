@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz quiz'u</title>
+</head>
+<body>
+<h1>Dodaj nowe pytanie do quiz'u</h1>
+<form method="post">
+    <label for="qbody">Treść pytania</label>
+    <textarea
+            id="qbody" name="body"
+            placeholder="Wpisz treść pytania"
+            maxlength="500"
+            rows="5">
+
+    </textarea>
+    <fieldset>
+        <label for="option1">1 Opcja odpowiedzi</label>
+        <input id="option1" name="option1" type="text">
+        <label for="option2">2 Opcja odpowiedzi</label>
+        <input id="option2" name="option1" type="text">
+        <label for="option3">3 Opcja odpowiedzi</label>
+        <input id="option3" name="option1" type="text">
+        <label for="option4">4 Opcja odpowiedzi</label>
+        <input id="option4" name="option1" type="text">
+    </fieldset>
+    <label for="validOption">Numer poprawnej opcji</label>
+    <select name="validOption" id="validOption">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+
+    </select>
+
+    <label for="points">Punkty za poprawną odpowiedź</label>
+    <input id="points" name="points" type="number" min="1" max="10" step="1">
+
+    <input type="submit" value="Prześlij">
+</form>
+
+</body>
+</html>
