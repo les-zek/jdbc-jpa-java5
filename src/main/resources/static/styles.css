@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, serif;
+font-size: 18px;
+}
+
+
+h1 {
+    color: #0d1135;
+}
+
+h2 {
+    color: cornflowerblue;
+}
+
+h3 {
+    color: lightskyblue;
+}
+
+.with-red-font-color {
+    color: crimson;
+}
+
+#div-section {
+    color: antiquewhite;
+}
+
+div p {
+    color: crimson;
+}
+
+div > p {
+    color: chocolate;
+}
+
+div + p {
+    color: darkkhaki;
+}
+.colored-lines :nth-child(odd) {
+    background-color: bisque;
+}
+.colored-lines :nth-child(even) {
+    background-color: aqua;
+}
+
+a:visited {
+    color: red;
+}
+a:hover {
+    background-color: antiquewhite;
+}
+
+input:invalid {
+    color: crimson;
+}
+p::before {
+    content: "&nbsp;&nbsp;&nbsp;";
+}
+.square {
+    width: 10rem;
+    height: 10rem;
+
+}
+.basic {
+    background-color: hsl(100, 100%,50%);
+}
+.darker {
+    background-color: hsl(100, 100%,10%);
+}
+.lighter {
+    background-color: hsl(100, 100%,10%);
+}
