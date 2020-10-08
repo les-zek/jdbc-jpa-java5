@@ -1,71 +1,77 @@
-body {
+body{
     font-family: Arial, serif;
-font-size: 18px;
+    color: #fbac23;
 }
 
-
-h1 {
-    color: #0d1135;
+h1, h2 {
+    color: darkviolet;
 }
 
-h2 {
-    color: cornflowerblue;
+.with-red-font-color{
+    color: red;
 }
-
-h3 {
-    color: lightskyblue;
+#div-section{
+    color: chartreuse;
 }
-
-.with-red-font-color {
-    color: crimson;
+div p{
+    color: coral;
 }
-
-#div-section {
-    color: antiquewhite;
-}
-
-div p {
-    color: crimson;
-}
-
 div > p {
-    color: chocolate;
+    color: aqua;
 }
 
 div + p {
-    color: darkkhaki;
+    color: cornflowerblue;
 }
-.colored-lines :nth-child(odd) {
-    background-color: bisque;
+#selected-paragraph {
+    color: yellow;
 }
-.colored-lines :nth-child(even) {
+.my-class{
+    color: red;
+}
+
+.colored-lines :nth-child(odd){
+    background-color: yellow;
+}
+
+.colored-lines :nth-child(even){
     background-color: aqua;
 }
 
-a:visited {
+a:visited{
     color: red;
 }
-a:hover {
-    background-color: antiquewhite;
+
+a:hover{
+    background-color: wheat;
 }
 
-input:invalid {
-    color: crimson;
+input:invalid{
+    color: red;
 }
-p::before {
-    content: "&nbsp;&nbsp;&nbsp;";
+
+p::before{
+    content: "\0000a0\0000a0\0000a0";
 }
-.square {
+
+.square{
     width: 10rem;
     height: 10rem;
+}
 
+.basic{
+    background-color: hsl(100, 80%, 40%);
 }
-.basic {
-    background-color: hsl(100, 100%,50%);
+
+.darker{
+    background-color: hsl(100, 80%, 10%);
 }
-.darker {
-    background-color: hsl(100, 100%,10%);
+
+.lighter{
+    background-color: hsl(100, 80%, 90%);
 }
-.lighter {
-    background-color: hsl(100, 100%,10%);
+
+.square-50{
+    width: 50%;
+    height: 50%;
 }
