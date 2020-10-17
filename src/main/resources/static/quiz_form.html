@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Formularz quiz'u</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div class="quiz-form">
 <H1 style="color: brown">Dodaj nowe pytanie do quiz'u</H1>
 <form method="post" style="color: blue">
     <label for="qbody">Treść pytania</label>
@@ -28,19 +31,22 @@
         <option>3</option>
         <option>4</option>
     </select>
-    <label for="points">Punkt za poprawną odpowiedź</label>
+    <label for="points">Punkty za poprawną odpowiedź</label>
     <input id="points" name="points" type="number" min="1" max="10" step="1">
     <input type="submit" value="Prześlij">
 </form>
 
 <footer>
-    Stopka
+    <h1>--------------------</h1>
+
     <h1>(c) L.Ż 2020</h1>
-        <h2>
+
+    <h2>
         <script> document.write(new Date().toLocaleDateString()); </script>
     </h2>
 
 
 </footer>
 </body>
+</div
 </html>
