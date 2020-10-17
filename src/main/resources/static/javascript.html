@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Script</title>
+</head>
+<body>
+<script>
+    let suma;
+    const a = 5;
+    const b = 8;
+    suma = a + b;
+    const name = "podwójny apostrof";
+    const fname = 'pojedynczy apostrof';
+    const input = '<input type="text">'
+    console.log(suma);
+    console.log(name + fname);
+    console.log(input);
+    console.log('1' * 1);
+    console.log('1' + 1);
+    console.log(Number('1') + 1);
+    let price = new String('100.6');
+    let vat = 0.23;
+    console.log(price * vat + price);
+    console.log(typeof (price));
+    console.log(price === 100.6);
+    if (price instanceof Number) {
+        console.log("price is number")
+    } else {
+        console.log("price is string")
+    }
+
+    switch (name) {
+        case "podwójny apostrof":
+            console.log(name);
+            break;
+        case "pojedynczy spostrof":
+            console.log(name);
+            break;
+        default:
+            console.log("HAHAHA");
+    }
+
+</script>
+</body>
+</html>
