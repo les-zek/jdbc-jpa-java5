@@ -75,3 +75,16 @@ p::before{
     width: 50%;
     height: 50%;
 }
+
+@media all and (max-width: 600px){
+    body{
+        background-color: yellow;
+    }
+
+}
+@media all and (min-width: 600px){
+    body{
+        background-color: wheat;
+    }
+
+}
