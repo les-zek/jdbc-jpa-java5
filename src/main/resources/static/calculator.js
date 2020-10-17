@@ -4,7 +4,12 @@ function add () {
     const result = document.getElementById("result");
     result.value = Number(a.value) + Number(b.value);
 }
-
+function sub () {
+    const a = document.getElementById("numberA");
+    const b = document.getElementById("numberB");
+    const result = document.getElementById("result");
+    result.value = Number(a.value) - Number(b.value);
+}
 function mul () {
     const a = document.getElementById("numberA");
     const b = document.getElementById("numberB");

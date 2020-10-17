@@ -1,0 +1,12 @@
+body{
+    font-family: 'Lato' , sans-serif;
+    color: blue;
+}
+button{
+    color: darkblue;
+    background-color: powderblue;
+}
+.double_size {
+    color: blue;
+    font-size: 2em;
+}
