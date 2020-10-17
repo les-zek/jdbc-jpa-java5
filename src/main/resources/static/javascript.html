@@ -5,6 +5,10 @@
     <title>Java Script</title>
 </head>
 <body>
+<button type="button" onclick="addResult()">Kliknij</button>
+<div id="results">
+
+</div>
 <script>
     let suma;
     const a = 5;
@@ -34,13 +38,102 @@
         case "podwójny apostrof":
             console.log(name);
             break;
-        case "pojedynczy spostrof":
+        case "b pojedynczy spostrof":
             console.log(name);
             break;
         default:
             console.log("HAHAHA");
     }
 
+    function sum(x, y) {
+        if (isNaN(Number(x)) || isNaN(Number(y))) {
+            return;
+        }
+        return Number(x) + Number(y);
+
+    }
+
+    console.log(sum(4, 7));
+    console.log(sum('4', '7'));
+    console.log(sum(4, '7'));
+    let sumator = sum;
+
+    console.log(sumator(4, 8));
+    sumator = function (a, b) {
+        return a - b;
+    }
+
+    console.log(sumator(4, 8));
+    let diff = (a, b) => a - b;
+    console.log(diff(4, 8));
+
+    let car = {
+        model: '105',
+        name: 'Syrena',
+        power: 60,
+        print: function () {
+            return this.model + " " + this.name + " " + this.power;
+        }
+    };
+    car.model = "102";
+    console.log(car.print());
+
+    class Car {
+        constructor(cmodel, cname) {
+            this.model = cmodel;
+            this.name = cname;
+        }
+
+        toString() {
+            return this.name + ' ' + this.model;
+        }
+
+        setModel(model) {
+            this.model = model;
+        }
+    }
+
+    let myCar = new Car("500", "Fiat");
+    console.log(myCar.toString());
+
+    console.log(myCar["model"]);
+    console.log(myCar.hasOwnProperty("model"));
+    // tablice
+    let arr = [];
+    let cars = ["fiat", "bmw", "audi"];
+    cars.push("Ford");    // dodanie elementu do tablicy - na koniec
+
+    cars.unshift("Mercedes");  // dodanie na początek
+    for (let i = 0; i < cars.length; i++) {
+        console.log(cars[i]);
+    }
+
+    // usuniecie z konca
+    cars.pop();
+
+    // usuniecie z poczatku
+    cars.shift();
+
+    // pętla foreach
+    for (car of cars) {
+        console.log(car);
+    }
+    for (index in cars) {
+        console.log(index + ' ' + cars[index]);
+    }
+
+    // for each na tablicy
+    cars.forEach(item => console.log(item));
+
+    // rownowazny zapis - z funkcja callback
+    cars.forEach(function (item, index, array) {
+        console.log(index + 1 + " " + item);
+    })
+
+function addResult () {
+        const divResults = document.getElementById("results");
+        divResults.innerHTML += '<p>Akapit</p>';
+}
 </script>
 </body>
 </html>
