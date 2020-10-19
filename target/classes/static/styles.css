@@ -1,0 +1,90 @@
+body{
+    font-family: Arial, serif;
+    color: #fbac23;
+}
+
+h1, h2 {
+    color: darkviolet;
+}
+
+.with-red-font-color{
+    color: red;
+}
+#div-section{
+    color: chartreuse;
+}
+div p{
+    color: coral;
+}
+div > p {
+    color: aqua;
+}
+
+div + p {
+    color: cornflowerblue;
+}
+#selected-paragraph {
+    color: yellow;
+}
+.my-class{
+    color: red;
+}
+
+.colored-lines :nth-child(odd){
+    background-color: yellow;
+}
+
+.colored-lines :nth-child(even){
+    background-color: aqua;
+}
+
+a:visited{
+    color: red;
+}
+
+a:hover{
+    background-color: wheat;
+}
+
+input:invalid{
+    color: red;
+}
+
+p::before{
+    content: "\0000a0\0000a0\0000a0";
+}
+
+.square{
+    width: 10rem;
+    height: 10rem;
+}
+
+.basic{
+    background-color: hsl(100, 80%, 40%);
+}
+
+.darker{
+    background-color: hsl(100, 80%, 10%);
+}
+
+.lighter{
+    background-color: hsl(100, 80%, 90%);
+}
+
+.square-50{
+    width: 50%;
+    height: 50%;
+}
+
+@media all and (max-width: 600px){
+    body{
+        background-color: yellow;
+    }
+
+}
+@media all and (min-width: 600px){
+    body{
+        background-color: wheat;
+    }
+
+}
