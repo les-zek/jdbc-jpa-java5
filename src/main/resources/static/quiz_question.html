@@ -9,7 +9,7 @@
 
 </div>
 <script>
-    fetch("http://localhost:8080/questions/1")
+    fetch("http://localhost:8080/questions/2")
         .then(response => response.json())
         .then(response => {
             let div = document.getElementById("question");
@@ -19,7 +19,21 @@
             <li>${response.options[2]}</li>
             <li>${response.options[3]}</li>
             </ol>`;
+
         })
 </script>
+<div>
+    <form method="post">
+        <label for="validOption">Twoja odpowiedź </label>
+        <select name="validOption" id="validOption">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <input type="submit" value="Prześlij">
+    </form>
+
+</div>
 </body>
 </html>
