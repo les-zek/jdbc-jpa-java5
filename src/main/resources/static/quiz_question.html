@@ -9,15 +9,19 @@
 
 </div>
 <script>
-    fetch("http://localhost:8080/questions/2")
+    fetch("http://localhost:8080/questions/1")
         .then(response => response.json())
         .then(response => {
             let div = document.getElementById("question");
             div.innerHTML = `<p>${response.body}</p><ol>
-            <li>${response.options[0]}</li>
-            <li>${response.options[1]}</li>
-            <li>${response.options[2]}</li>
-            <li>${response.options[3]}</li>
+<ul>
+            <li>1. ${response.options[0]}</li>
+            <li>2. ${response.options[1]}</li>
+            <li>3. ${response.options[2]}</li>
+            <li>4. ${response.options[3]}</li>
+            <li>0. Cofnij się do poprzedniego pytania</li>
+            <li>5. Koniec</li>
+</ul>
             </ol>`;
 
         })
@@ -30,6 +34,8 @@
             <option>2</option>
             <option>3</option>
             <option>4</option>
+            <option>0</option>
+            <option>5</option>
         </select>
         <input type="submit" value="Prześlij">
     </form>
