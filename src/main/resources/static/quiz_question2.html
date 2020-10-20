@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<div id="question">
+
+</div>
+<script>
+    fetch("http://localhost:8080/questions/1")
+        .then(response => response.json())
+        .then(response => {
+            let div = document.getElementById("question");
+            div.innerHTML = `<p>${response.body}</p>
+<form>
+    <form method="post">
+
+            <input type = "radio" id="option1" name="answer" value="1">
+                <label for "option1">${response.options[0]}</label><br>
+            <input type = "radio" id="option2" name="answer" value="2">
+                <label for "option2">${response.options[1]}</label><br>
+            <input type = "radio" id="option3" name="answer" value="3">
+                <label for "option3">${response.options[2]}</label><br>
+            <input type = "radio" id="option4" name="answer" value="4">
+                <label for "option4">${response.options[3]}</label><br><br>
+
+        <input type="submit" value="Prześlij">
+</form>
+            `;
+
+        })
+</script>
+
+
+</body>
+</html>
