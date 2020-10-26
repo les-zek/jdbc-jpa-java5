@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
-    <link rel="stylesheet" href="quiz_boot.css">
+    <link rel="stylesheet" href="quiz.css">
 
 </head>
 <body>
@@ -11,7 +11,7 @@
 
 </div>
 <script>
-    fetch("http://localhost:8080/questions/3")
+    fetch("http://localhost:8080/questions/1")
         .then(response => response.json())
         .then(response => {
             let div = document.getElementById("question");
